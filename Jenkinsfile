@@ -1,9 +1,9 @@
 pipeline{
-    agent {
+    agent{
         docker {
             image 'maven:3.8.1-adoptopenjdk-11'
             args '-v /root/.m2:/root/.m2'
-        }   
+        }
     }
     options {
         skipStagesAfterUnstable()
@@ -42,6 +42,7 @@ pipeline{
                 failure{
                     echo "====++++Test execution failed++++===="
                 }
+       
             }
         }
         stage("Deploy"){
@@ -59,6 +60,7 @@ pipeline{
                 failure{
                     echo "====++++Deploy execution failed++++===="
                 }
+       
             }
         }
     }
@@ -73,4 +75,4 @@ pipeline{
             echo "========pipeline execution failed========"
         }
     }
-​​}
+}
